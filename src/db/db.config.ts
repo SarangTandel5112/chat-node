@@ -7,11 +7,11 @@ dotenv.config();
 
 export const AppDataSource = new DataSource({
     type: 'postgres',
-    host: "localhost",
+    host: "chat-db.clxg76oyi24f.eu-north-1.rds.amazonaws.com",
     port: 5432,
     username: 'sarang',
-    password: 'sarang@123',
-    database: 'socket',
+    password: 'sarang123',
+    database: 'postgres',
     synchronize: true,
     logging: false,
     entities: [`${path.join(__dirname, "../entities/*{.js,.ts}")}`],
