@@ -5,16 +5,16 @@ import { AppDataSource } from './db/db.config';
 import { AppSocket } from './socket/socket';
 import { Redis } from './helpers/redis';
 
-const PORT = process.env.PORT || 3100;
+const PORT = process.env.PORT || 3000;
 
 const httpServer = http.createServer(App);
 
 AppDataSource.initialize()
     .then(() => {
         console.log("Data Source has been initialized!")
-        new Redis()
-        const appSocket = new AppSocket();
-        appSocket.init();
+        // new Redis()
+        // const appSocket = new AppSocket();
+        // appSocket.init();
     })
     .catch((err) => {
         console.error("Error during Data Source initialization", err)
@@ -22,5 +22,5 @@ AppDataSource.initialize()
 
 
 httpServer.listen(PORT, () => {
-    console.log("Server started at 3100.....")
+    console.log(`Server started at ${PORT}.....`)
 });

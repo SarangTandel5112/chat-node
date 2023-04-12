@@ -11,14 +11,14 @@ export class Jwt {
     * getAuthToken
     */
     public static getAuthToken(payload) {
-        return JWT.sign({ payload }, process.env.JWT_SECRET, { expiresIn: process.env.JwtExpireTime });
+        return JWT.sign({ payload }, process.env.private, { expiresIn: process.env.JwtExpireTime });
     }
 
     /*
     * decodeAuthToken
     */
     public static decodeAuthToken(token) {
-        const decodedToken = JWT.verify(token,process.env.JWT_SECRET);
+        const decodedToken = JWT.verify(token, process.env.private);
         if (decodedToken) {
             return decodedToken;
         } else {
@@ -27,7 +27,7 @@ export class Jwt {
     }
 
     public static encodeString(text: string, secret?: string) {
-        return JWT.sign({ text }, secret ? secret : process.env.JWT_SECRET);
+        return JWT.sign({ text }, secret ? secret : process.env.private);
     }
 
     public static decodeString(text: string) {

@@ -62,6 +62,9 @@ class App {
             }
         });
         this.app.use("/api", routes.path());
+        this.app.get('/try', (req: any, res: any) => {
+            res.send("welcome")
+        })
 
         this.app.use(async (err, req, res, next) => {
             if (err) {
